@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace atm_form
 {
-    internal class LoanLogic
+    internal class Account
     {
-        public string CalculateLoan() 
-        {
-            return "Hello";
-        }
+        public int Id { get; set; }
+        public double Balance { get; set; }
     }
 }

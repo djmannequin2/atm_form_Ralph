@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.lblPin = new System.Windows.Forms.Label();
             this.lblDeposit = new System.Windows.Forms.Label();
             this.lblLoan = new System.Windows.Forms.Label();
@@ -42,8 +41,8 @@
             this.deposit_butt = new System.Windows.Forms.Button();
             this.loan_butt = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.empty_butt3 = new System.Windows.Forms.Button();
-            this.empty_butt2 = new System.Windows.Forms.Button();
+            this.backspace = new System.Windows.Forms.Button();
+            this.period_butt = new System.Windows.Forms.Button();
             this.zero = new System.Windows.Forms.Button();
             this.empty_butt1 = new System.Windows.Forms.Button();
             this.enter_butt = new System.Windows.Forms.Button();
@@ -74,11 +73,13 @@
             this.monthlyPay_txt = new System.Windows.Forms.TextBox();
             this.interestRate_txt = new System.Windows.Forms.TextBox();
             this.numOfYears_txt = new System.Windows.Forms.TextBox();
-            this.groupBox2.SuspendLayout();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lblPrompt = new System.Windows.Forms.Label();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -90,28 +91,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
-            this.groupBox2.Controls.Add(this.lblPin);
-            this.groupBox2.Controls.Add(this.lblDeposit);
-            this.groupBox2.Controls.Add(this.lblLoan);
-            this.groupBox2.Controls.Add(this.lblWithdraw);
-            this.groupBox2.Controls.Add(this.lblBalance);
-            this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.groupBox2.Location = new System.Drawing.Point(152, 12);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(190, 183);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            // 
             // lblPin
             // 
             this.lblPin.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lblPin.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblPin.Location = new System.Drawing.Point(9, 60);
+            this.lblPin.Font = new System.Drawing.Font("SquareFont", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPin.Location = new System.Drawing.Point(7, 99);
             this.lblPin.Name = "lblPin";
-            this.lblPin.Size = new System.Drawing.Size(175, 66);
+            this.lblPin.Size = new System.Drawing.Size(180, 29);
             this.lblPin.TabIndex = 6;
             this.lblPin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -119,7 +105,7 @@
             // 
             this.lblDeposit.AutoSize = true;
             this.lblDeposit.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblDeposit.Location = new System.Drawing.Point(120, 126);
+            this.lblDeposit.Location = new System.Drawing.Point(118, 128);
             this.lblDeposit.Name = "lblDeposit";
             this.lblDeposit.Size = new System.Drawing.Size(69, 21);
             this.lblDeposit.TabIndex = 5;
@@ -129,7 +115,7 @@
             // 
             this.lblLoan.AutoSize = true;
             this.lblLoan.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblLoan.Location = new System.Drawing.Point(140, 39);
+            this.lblLoan.Location = new System.Drawing.Point(138, 36);
             this.lblLoan.Name = "lblLoan";
             this.lblLoan.Size = new System.Drawing.Size(47, 21);
             this.lblLoan.TabIndex = 4;
@@ -139,7 +125,7 @@
             // 
             this.lblWithdraw.AutoSize = true;
             this.lblWithdraw.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblWithdraw.Location = new System.Drawing.Point(4, 127);
+            this.lblWithdraw.Location = new System.Drawing.Point(2, 129);
             this.lblWithdraw.Name = "lblWithdraw";
             this.lblWithdraw.Size = new System.Drawing.Size(85, 21);
             this.lblWithdraw.TabIndex = 3;
@@ -149,7 +135,7 @@
             // 
             this.lblBalance.AutoSize = true;
             this.lblBalance.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lblBalance.Location = new System.Drawing.Point(6, 39);
+            this.lblBalance.Location = new System.Drawing.Point(4, 36);
             this.lblBalance.Name = "lblBalance";
             this.lblBalance.Size = new System.Drawing.Size(70, 21);
             this.lblBalance.TabIndex = 2;
@@ -176,6 +162,7 @@
             this.withdraw_butt.TabStop = false;
             this.withdraw_butt.Text = "=>";
             this.withdraw_butt.UseVisualStyleBackColor = true;
+            this.withdraw_butt.Click += new System.EventHandler(this.withdraw_butt_Click);
             // 
             // balance_butt
             // 
@@ -210,6 +197,7 @@
             this.deposit_butt.TabStop = false;
             this.deposit_butt.Text = "<=";
             this.deposit_butt.UseVisualStyleBackColor = true;
+            this.deposit_butt.Click += new System.EventHandler(this.deposit_butt_Click);
             // 
             // loan_butt
             // 
@@ -225,8 +213,8 @@
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.empty_butt3);
-            this.groupBox5.Controls.Add(this.empty_butt2);
+            this.groupBox5.Controls.Add(this.backspace);
+            this.groupBox5.Controls.Add(this.period_butt);
             this.groupBox5.Controls.Add(this.zero);
             this.groupBox5.Controls.Add(this.empty_butt1);
             this.groupBox5.Controls.Add(this.enter_butt);
@@ -247,25 +235,29 @@
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             // 
-            // empty_butt3
+            // backspace
             // 
-            this.empty_butt3.Location = new System.Drawing.Point(395, 273);
-            this.empty_butt3.Name = "empty_butt3";
-            this.empty_butt3.Size = new System.Drawing.Size(101, 65);
-            this.empty_butt3.TabIndex = 19;
-            this.empty_butt3.TabStop = false;
-            this.empty_butt3.Text = " ";
-            this.empty_butt3.UseVisualStyleBackColor = true;
+            this.backspace.Font = new System.Drawing.Font("Fira Sans Black", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.backspace.Location = new System.Drawing.Point(394, 273);
+            this.backspace.Name = "backspace";
+            this.backspace.Size = new System.Drawing.Size(101, 65);
+            this.backspace.TabIndex = 19;
+            this.backspace.TabStop = false;
+            this.backspace.Text = " Backspace";
+            this.backspace.UseVisualStyleBackColor = true;
+            this.backspace.Click += new System.EventHandler(this.backspace_Click);
             // 
-            // empty_butt2
+            // period_butt
             // 
-            this.empty_butt2.Location = new System.Drawing.Point(262, 273);
-            this.empty_butt2.Name = "empty_butt2";
-            this.empty_butt2.Size = new System.Drawing.Size(101, 65);
-            this.empty_butt2.TabIndex = 18;
-            this.empty_butt2.TabStop = false;
-            this.empty_butt2.Text = " ";
-            this.empty_butt2.UseVisualStyleBackColor = true;
+            this.period_butt.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.period_butt.Location = new System.Drawing.Point(262, 273);
+            this.period_butt.Name = "period_butt";
+            this.period_butt.Size = new System.Drawing.Size(101, 65);
+            this.period_butt.TabIndex = 18;
+            this.period_butt.TabStop = false;
+            this.period_butt.Text = " .";
+            this.period_butt.UseVisualStyleBackColor = true;
+            this.period_butt.Click += new System.EventHandler(this.period_butt_Click);
             // 
             // zero
             // 
@@ -402,6 +394,7 @@
             // 
             // three
             // 
+            this.three.FlatAppearance.BorderColor = System.Drawing.Color.Black;
             this.three.Font = new System.Drawing.Font("Fira Sans Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.three.Location = new System.Drawing.Point(258, 22);
             this.three.Name = "three";
@@ -509,7 +502,7 @@
             this.receipt_butt.Size = new System.Drawing.Size(112, 61);
             this.receipt_butt.TabIndex = 0;
             this.receipt_butt.TabStop = false;
-            this.receipt_butt.Text = "Receipt";
+            this.receipt_butt.Text = "View Receipt";
             this.receipt_butt.UseVisualStyleBackColor = true;
             this.receipt_butt.Click += new System.EventHandler(this.receipt_butt_Click);
             // 
@@ -521,7 +514,7 @@
             this.loan_system_butt.Size = new System.Drawing.Size(112, 61);
             this.loan_system_butt.TabIndex = 0;
             this.loan_system_butt.TabStop = false;
-            this.loan_system_butt.Text = "Loan";
+            this.loan_system_butt.Text = "Calculate Loan";
             this.loan_system_butt.UseVisualStyleBackColor = true;
             this.loan_system_butt.Click += new System.EventHandler(this.loan_system_butt_Click);
             // 
@@ -611,27 +604,54 @@
             this.numOfYears_txt.Size = new System.Drawing.Size(138, 30);
             this.numOfYears_txt.TabIndex = 2;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.panel2.Controls.Add(this.lblPrompt);
+            this.panel2.Controls.Add(this.lblPin);
+            this.panel2.Controls.Add(this.lblDeposit);
+            this.panel2.Controls.Add(this.lblBalance);
+            this.panel2.Controls.Add(this.lblLoan);
+            this.panel2.Controls.Add(this.lblWithdraw);
+            this.panel2.Location = new System.Drawing.Point(152, 12);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(190, 183);
+            this.panel2.TabIndex = 7;
+            // 
+            // lblPrompt
+            // 
+            this.lblPrompt.Font = new System.Drawing.Font("SquareFont", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPrompt.Location = new System.Drawing.Point(9, 69);
+            this.lblPrompt.Name = "lblPrompt";
+            this.lblPrompt.Size = new System.Drawing.Size(181, 30);
+            this.lblPrompt.TabIndex = 0;
+            this.lblPrompt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(1336, 594);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox4);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.KeyPreview = true;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "ATM Services";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -639,8 +659,6 @@
         #endregion
 
         private GroupBox groupBox1;
-
-        private GroupBox groupBox2;
         private GroupBox groupBox3;
         private GroupBox groupBox4;
         private GroupBox groupBox5;
@@ -652,8 +670,8 @@
         private Button three;
         private Button two;
         private Button one;
-        private Button empty_butt3;
-        private Button empty_butt2;
+        private Button backspace;
+        private Button period_butt;
         private Button zero;
         private Button empty_butt1;
         private Button enter_butt;
@@ -685,5 +703,7 @@
         private TextBox monthlyPay_txt;
         private TextBox interestRate_txt;
         private TextBox numOfYears_txt;
+        private Panel panel2;
+        private Label lblPrompt;
     }
 }
